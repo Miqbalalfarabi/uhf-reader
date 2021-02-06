@@ -1,0 +1,229 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x67ea5f67, pid=9800, tid=0x00003310
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_281-b09) (build 1.8.0_281-b09)
+# Java VM: Java HotSpot(TM) Client VM (25.281-b09 mixed mode windows-x86 )
+# Problematic frame:
+# V  [jvm.dll+0x165f67]
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00b51800):  JavaThread "main" [_thread_in_vm, id=13072, stack(0x00c60000,0x00cb0000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0xfffffffe
+
+Registers:
+EAX=0xffffffff, EBX=0x146c0a00, ECX=0x38e0b681, EDX=0x67e27b00
+ESP=0x00caf6e0, EBP=0x00caf6e4, ESI=0x00b51800, EDI=0x00b51800
+EIP=0x67ea5f67, EFLAGS=0x00010202
+
+Top of Stack: (sp=0x00caf6e0)
+0x00caf6e0:   00b51800 00caf724 67e27b56 ffffffff
+0x00caf6f0:   00b51800 00b51940 146c0af0 00b50288
+0x00caf700:   015244b4 00000000 00caf86c 00caf73c
+0x00caf710:   67dc4175 00000006 00000008 00b51800
+0x00caf720:   146c0af0 00caf790 67cb101b 00b51800
+0x00caf730:   ffffffff 00000000 00b51800 146c0af0
+0x00caf740:   00caf790 146c0af0 00b51940 0240db31
+0x00caf750:   00b51940 00caf7b0 00000001 ffffffff 
+
+Instructions: (pc=0x67ea5f67)
+0x67ea5f47:   56 e8 13 3f 11 00 83 c4 04 8b c6 5e 5d c3 33 c0
+0x67ea5f57:   5e 5d c3 cc cc cc cc cc cc 55 8b ec 8b 45 08 56
+0x67ea5f67:   8b 70 ff 85 f6 74 12 80 3d 03 b2 0d 68 00 74 09
+0x67ea5f77:   56 e8 e3 3e 11 00 83 c4 04 8b c6 5e 5d c3 cc cc 
+
+
+Register to memory mapping:
+
+EAX=0xffffffff is an unknown value
+EBX=0x146c0a00 is pointing into metadata
+ECX=0x38e0b681 is an unknown value
+EDX=0x67e27b00 is an unknown value
+ESP=0x00caf6e0 is pointing into the stack for thread: 0x00b51800
+EBP=0x00caf6e4 is pointing into the stack for thread: 0x00b51800
+ESI=0x00b51800 is a thread
+EDI=0x00b51800 is a thread
+
+
+Stack: [0x00c60000,0x00cb0000],  sp=0x00caf6e0,  free space=317k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x165f67]
+V  [jvm.dll+0xe7b56]
+C  [com_rfid_uhf_Device.dll+0x101b]
+j  uhf.rfid.main([Ljava/lang/String;)V+40
+v  ~StubRoutines::call_stub
+V  [jvm.dll+0x1653c4]
+V  [jvm.dll+0x2360ab]
+V  [jvm.dll+0x164f6a]
+V  [jvm.dll+0xebc35]
+V  [jvm.dll+0xe44b6]
+C  [java.exe+0x2314]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  com.rfid.uhf.Device.OpenComPort(IBB[I)I+0
+j  uhf.rfid.main([Ljava/lang/String;)V+40
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x14b5d800 JavaThread "Service Thread" daemon [_thread_blocked, id=10408, stack(0x14ec0000,0x14f10000)]
+  0x14b37800 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=7572, stack(0x14e30000,0x14e80000)]
+  0x14b36800 JavaThread "Attach Listener" daemon [_thread_blocked, id=6896, stack(0x14da0000,0x14df0000)]
+  0x14b35400 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=9320, stack(0x14d10000,0x14d60000)]
+  0x00c1c800 JavaThread "Finalizer" daemon [_thread_blocked, id=7416, stack(0x14a50000,0x14aa0000)]
+  0x00c15800 JavaThread "Reference Handler" daemon [_thread_blocked, id=4512, stack(0x149c0000,0x14a10000)]
+=>0x00b51800 JavaThread "main" [_thread_in_vm, id=13072, stack(0x00c60000,0x00cb0000)]
+
+Other Threads:
+  0x00c01000 VMThread [stack: 0x14930000,0x14980000] [id=12620]
+  0x14b71800 WatcherThread [stack: 0x14f50000,0x14fa0000] [id=2704]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ def new generation   total 4928K, used 441K [0x04400000, 0x04950000, 0x09950000)
+  eden space 4416K,  10% used [0x04400000, 0x0446e7b0, 0x04850000)
+  from space 512K,   0% used [0x04850000, 0x04850000, 0x048d0000)
+  to   space 512K,   0% used [0x048d0000, 0x048d0000, 0x04950000)
+ tenured generation   total 10944K, used 0K [0x09950000, 0x0a400000, 0x14400000)
+   the space 10944K,   0% used [0x09950000, 0x09950000, 0x09950200, 0x0a400000)
+ Metaspace       used 1790K, capacity 2248K, committed 2368K, reserved 4480K
+
+Card table byte_map: [0x14400000,0x14490000] byte_map_base: 0x143de000
+
+Polling page: 0x00cb0000
+
+CodeCache: size=32768Kb used=677Kb max_used=677Kb free=32091Kb
+ bounds [0x02400000, 0x024b0000, 0x04400000]
+ total_blobs=159 nmethods=14 adapters=77
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 0.090 Thread 0x14b37800   10             java.lang.CharacterDataLatin1::toLowerCase (39 bytes)
+Event: 0.090 Thread 0x14b37800 nmethod 10 0x024a6288 code [0x024a6380, 0x024a6460]
+Event: 0.090 Thread 0x14b37800   11             java.lang.String::toLowerCase (439 bytes)
+Event: 0.091 Thread 0x14b37800 nmethod 11 0x024a6548 code [0x024a6750, 0x024a6f70]
+Event: 0.091 Thread 0x14b37800   12             java.lang.AbstractStringBuilder::ensureCapacityInternal (27 bytes)
+Event: 0.092 Thread 0x14b37800 nmethod 12 0x024a79c8 code [0x024a7ae0, 0x024a7ca8]
+Event: 0.092 Thread 0x14b37800   13             java.lang.AbstractStringBuilder::append (29 bytes)
+Event: 0.092 Thread 0x14b37800 nmethod 13 0x024a7d88 code [0x024a7ea0, 0x024a80a8]
+Event: 0.092 Thread 0x14b37800   14             java.lang.String::indexOf (166 bytes)
+Event: 0.092 Thread 0x14b37800 nmethod 14 0x024a8248 code [0x024a8360, 0x024a8590]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (2 events):
+Event: 0.036 Thread 0x00b51800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x04406eb8) thrown at [C:\jenkins\workspace\8-2-build-windows-i586-cygwin\jdk8u281\880\hotspot\src\s
+Event: 0.036 Thread 0x00b51800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x04407188) thrown at [C:\jenkins\workspace\8-2-build-windows-i586-cygwin\jdk8u281\880\hotspot\src\share\vm\prims\jni.
+
+Events (10 events):
+Event: 0.095 loading class java/security/BasicPermissionCollection
+Event: 0.095 loading class java/security/BasicPermissionCollection done
+Event: 0.095 loading class sun/launcher/LauncherHelper$FXHelper
+Event: 0.095 loading class sun/launcher/LauncherHelper$FXHelper done
+Event: 0.095 loading class java/lang/Class$MethodArray
+Event: 0.095 loading class java/lang/Class$MethodArray done
+Event: 0.096 loading class java/lang/Void
+Event: 0.096 loading class java/lang/Void done
+Event: 0.101 loading class com/rfid/uhf/Device
+Event: 0.101 loading class com/rfid/uhf/Device done
+
+
+Dynamic libraries:
+0x00230000 - 0x0026e000 	C:\Program Files (x86)\Java\jdk1.8.0_281\bin\java.exe
+0x77b30000 - 0x77cca000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x77390000 - 0x77470000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x74440000 - 0x7444e000 	C:\Program Files\AVAST Software\Avast\x86\aswhook.dll
+0x755c0000 - 0x757bf000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x75250000 - 0x752ef000 	C:\WINDOWS\SYSTEM32\apphelp.dll
+0x754e0000 - 0x75559000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x75ff0000 - 0x760af000 	C:\WINDOWS\System32\msvcrt.dll
+0x77630000 - 0x776a6000 	C:\WINDOWS\System32\sechost.dll
+0x776b0000 - 0x7776b000 	C:\WINDOWS\System32\RPCRT4.dll
+0x75300000 - 0x75325000 	C:\WINDOWS\System32\SspiCli.dll
+0x752f0000 - 0x752fa000 	C:\WINDOWS\System32\CRYPTBASE.dll
+0x75e80000 - 0x75ee0000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x77470000 - 0x77608000 	C:\WINDOWS\System32\USER32.dll
+0x758d0000 - 0x758e7000 	C:\WINDOWS\System32\win32u.dll
+0x758a0000 - 0x758c1000 	C:\WINDOWS\System32\GDI32.dll
+0x76810000 - 0x7696d000 	C:\WINDOWS\System32\gdi32full.dll
+0x771f0000 - 0x7726c000 	C:\WINDOWS\System32\msvcp_win.dll
+0x75330000 - 0x75450000 	C:\WINDOWS\System32\ucrtbase.dll
+0x73cd0000 - 0x73edf000 	C:\WINDOWS\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.18362.1316_none_e6276d26f8de04dd\COMCTL32.dll
+0x77810000 - 0x77a86000 	C:\WINDOWS\System32\combase.dll
+0x758f0000 - 0x75915000 	C:\WINDOWS\System32\IMM32.DLL
+0x68190000 - 0x681a3000 	C:\Program Files (x86)\Java\jdk1.8.0_281\jre\bin\vcruntime140.dll
+0x68120000 - 0x6818f000 	C:\Program Files (x86)\Java\jdk1.8.0_281\jre\bin\msvcp140.dll
+0x67d40000 - 0x6811e000 	C:\Program Files (x86)\Java\jdk1.8.0_281\jre\bin\client\jvm.dll
+0x75920000 - 0x75926000 	C:\WINDOWS\System32\PSAPI.DLL
+0x71c80000 - 0x71c88000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x767a0000 - 0x767fe000 	C:\WINDOWS\System32\WS2_32.dll
+0x74af0000 - 0x74b14000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x74020000 - 0x74028000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x74ac0000 - 0x74ae3000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x75450000 - 0x7548b000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x76780000 - 0x7678f000 	C:\WINDOWS\System32\kernel.appcore.dll
+0x67d30000 - 0x67d3d000 	C:\Program Files (x86)\Java\jdk1.8.0_281\jre\bin\verify.dll
+0x67d00000 - 0x67d24000 	C:\Program Files (x86)\Java\jdk1.8.0_281\jre\bin\java.dll
+0x67ce0000 - 0x67cf4000 	C:\Program Files (x86)\Java\jdk1.8.0_281\jre\bin\zip.dll
+0x760b0000 - 0x7662b000 	C:\WINDOWS\System32\SHELL32.dll
+0x77a90000 - 0x77b13000 	C:\WINDOWS\System32\shcore.dll
+0x76aa0000 - 0x77060000 	C:\WINDOWS\System32\windows.storage.dll
+0x77270000 - 0x7728b000 	C:\WINDOWS\System32\profapi.dll
+0x75490000 - 0x754d3000 	C:\WINDOWS\System32\powrprof.dll
+0x76790000 - 0x7679d000 	C:\WINDOWS\System32\UMPDC.dll
+0x76a50000 - 0x76a94000 	C:\WINDOWS\System32\shlwapi.dll
+0x77060000 - 0x77073000 	C:\WINDOWS\System32\cryptsp.dll
+0x67cb0000 - 0x67cdf000 	C:\Program Files (x86)\Java\jdk1.8.0_281\jre\bin\com_rfid_uhf_Device.dll
+0x67c50000 - 0x67ca6000 	C:\Program Files (x86)\Java\jdk1.8.0_281\bin\UHFReader288MP.dll
+0x75990000 - 0x75dd9000 	C:\WINDOWS\System32\SETUPAPI.dll
+0x75870000 - 0x75889000 	C:\WINDOWS\System32\bcrypt.dll
+0x72fc0000 - 0x7314f000 	C:\WINDOWS\SYSTEM32\dbghelp.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 
+java_command: uhf.rfid
+java_class_path (initial): D:\Kuliah\libraryme;D:\Kuliah\NetBeansProjects\New Folder\testdemo\build\classes
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Users\Global Store\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\opencv\opencv\build\x64\vc14\bin;C:\Program Files (x86)\MAVProxy;C:\Program Files\MATLAB\R2014b\runtime\win64;C:\Program Files\MATLAB\R2014b\bin;C:\Program Files\MATLAB\R2014b\polyspace\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Program Files (x86)\GnuWin32\bin;C:\Users\Global Store\AppData\Local\Microsoft\WindowsApps;D:\Kuliah\OpenCV3.1\install\x86\vc14\bin;C:\Users\Global Store\AppData\Roaming\npm;D:\Microsoft VS Code\bin;C:\Program Files (x86)\GnuWin32\bin;D:\Kuliah\anaconda;D:\Kuliah\Inno Setup 6;
+USERNAME=Global Store
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 18362 (10.0.18362.1110)
+
+CPU:total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 142 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 4074532k(651620k free), swap 7645636k(2327884k free)
+
+vm_info: Java HotSpot(TM) Client VM (25.281-b09) for windows-x86 JRE (1.8.0_281-b09), built on Dec  9 2020 12:52:05 by "" with MS VC++ 15.9 (VS2017)
+
+time: Sat Jan 30 17:43:28 2021
+timezone: SE Asia Standard Time
+elapsed time: 0.200433 seconds (0d 0h 0m 0s)
+
