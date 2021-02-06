@@ -40,7 +40,12 @@ public class rfid1 {
 	    	 byte[]CheckAnt=new byte[1];
 	    	 results = reader.GetReaderInformation(comAddr, versionInfo, readerType, trType, dmaxfre, dminfre, powerdBm, InventoryScanTime,
 	    			 Ant, BeepEn, OutputRep, CheckAnt, PortHandle[0]);
-                 //powerdBm[0]=0;
+                  int PortHandles=PortHandle[0];
+                 byte power1=30;
+                 reader.SetRfPower(comAddr, power1,PortHandles);
+                 //System.out.println("powerdBm :"+powerdBm);
+                 System.out.println("powerdBm2 :"+powerdBm[0]);
+	    	 //powerdBm[0]=0;
                  //System.out.println("powerdBm2 :"+powerdBm[0]);
 	    	 //System.out.println("Get reader information："+result);
 	    	 byte ComAdrData=0;
