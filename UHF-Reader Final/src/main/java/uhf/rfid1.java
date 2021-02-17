@@ -2,7 +2,7 @@ package uhf;
 import java.lang.reflect.Array;
 
 import com.rfid.uhf.Device.*;
-//import res1.com_rfid_uhf_Devices;
+
 import java.util.Arrays;
 import java.io.IOException;
 import javax.comm.UnsupportedCommOperationException;
@@ -18,7 +18,7 @@ static String nilaiadd="0" ;
 static String nilaiGadd="0" ;
 int ite;
 public static String getrfid() {
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
         return nilai;
     }static String content;
 	/**
@@ -48,7 +48,7 @@ public static String getrfid() {
                 //-Djava.library.path=D:\Kuliah\libraryme
                 //-Djava.library.path;
                 //System.load("my/full/path/native.dll");
-//bener
+
                 
                 System.load("D:/Kuliah/NetBeansProjects/New Folder/testdemo/com_rfid_uhf_Devices.dll");
                 //System.load("/home/johan/Downloads/testdemo/libdll/com_rfid_uhf_Devices.dll");
@@ -61,8 +61,7 @@ public static String getrfid() {
 	     byte[]comAddr=new byte[1];
 	     comAddr[0]=(byte)255;
 	     byte baud=5;//57600bps
-	     int[] PortHandle= new int[1];
-            //串口连接             
+	     int[] PortHandle= new int[1];           
 	     //int result = reader.OpenComPort(8, comAddr, baud, PortHandle);
              String IpAddress="158.140.167.173";
              
@@ -121,7 +120,7 @@ public static String getrfid() {
 			 byte MaskFlag=0;
 			 byte AdrTID=0;
 			 byte LenTID=6;
-			 byte TIDFlag=1;//读TID的前6个字
+			 byte TIDFlag=1;
 			 byte Target=0;
 			 byte InAnt=(byte)0x80;
 			 byte Scantime=10;
@@ -166,10 +165,10 @@ public static String getrfid() {
                                  message.setPayload(nilai.getBytes());
                                  sampleClient.publish(topic, message);
 	    			 //Write data according to TID number
-	    			 byte ENum=(byte)255;//掩码
-	    			 byte Mem=1;//读EPC
-	    			 byte WordPtr=2;//从第2字开始
-	    			 byte Num=6;//读6个字
+	    			 byte ENum=(byte)255;
+	    			 byte Mem=1;
+	    			 byte WordPtr=2;
+	    			 byte Num=6;
 	    			 byte[]Password=new byte[4];
                      MaskMem=2;//TID掩码
                      MaskAdr[0]=0;
@@ -182,7 +181,7 @@ public static String getrfid() {
                      byte WNum=7;
                      byte[]Wdt=new byte[WNum*2];
                      Wdt[0]=0x30;
-                     Wdt[1]=0x00;//第一个字PC长度
+                     Wdt[1]=0x00;
                      Wdt[2]=(byte)0xE2;
                      Wdt[3]=0x00;
                      Wdt[4]=0x12;
