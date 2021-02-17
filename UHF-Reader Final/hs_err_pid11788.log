@@ -1,0 +1,238 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x71c000a3, pid=11788, tid=0x00000e90
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_281-b09) (build 1.8.0_281-b09)
+# Java VM: Java HotSpot(TM) Client VM (25.281-b09 mixed mode, sharing windows-x86 )
+# Problematic frame:
+# C  [UHFReader288MP.dll+0x100a3]
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x005e3400):  JavaThread "main" [_thread_in_native, id=3728, stack(0x006f0000,0x00740000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x00060250
+
+Registers:
+EAX=0x00000000, EBX=0x157e67b8, ECX=0x15e702c4, EDX=0xffffffff
+ESP=0x0073f420, EBP=0x0073f454, ESI=0x00000001, EDI=0x15e10068
+EIP=0x71c000a3, EFLAGS=0x00010246
+
+Top of Stack: (sp=0x0073f420)
+0x0073f420:   157f4b58 005e3540 0073f4a4 157e67b8
+0x0073f430:   73e9111d 00009093 157eaef8 0073f460
+0x0073f440:   0073f454 005e3400 14c94350 0073f4a4
+0x0073f450:   14c94350 ffffffff 157f4cc8 0209db31
+0x0073f460:   005e35ff 0073f4c4 00009093 0073f4bc
+0x0073f470:   0073f4b8 0073f4b4 00000004 0073f490
+0x0073f480:   74627f7a 0073f484 00000000 0073f4c4
+0x0073f490:   14c952b8 00000000 14c94350 00000000 
+
+Instructions: (pc=0x71c000a3)
+0x71c00083:   98 e2 c3 71 68 68 6d c3 71 81 c1 5c 02 06 00 33
+0x71c00093:   c0 e8 b7 ec ff ff 8b 55 00 8b 04 95 98 e2 c3 71
+0x71c000a3:   83 b8 50 02 06 00 00 74 50 8b 74 24 18 83 c6 f0
+0x71c000b3:   83 7e 0c 00 8d 7e 0c 75 1e 68 08 6e c3 71 6a 00 
+
+
+Register to memory mapping:
+
+EAX=0x00000000 is an unknown value
+EBX=0x157e67b8 is an unknown value
+ECX=0x15e702c4 is an unknown value
+EDX=0xffffffff is an unknown value
+ESP=0x0073f420 is pointing into the stack for thread: 0x005e3400
+EBP=0x0073f454 is pointing into the stack for thread: 0x005e3400
+ESI=0x00000001 is an unknown value
+EDI=0x15e10068 is an unknown value
+
+
+Stack: [0x006f0000,0x00740000],  sp=0x0073f420,  free space=317k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [UHFReader288MP.dll+0x100a3]
+C  0x157f4cc8
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  com.rfid.uhf.Device.OpenNetPort(ILjava/lang/String;[B[I)I+0
+j  uhf.rfid1.main([Ljava/lang/String;)V+43
+j  com.mycompany.helloworld.Main.main([Ljava/lang/String;)V+102
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x157f7c00 JavaThread "MQTT Ping: JavaSampleHanjohan" [_thread_blocked, id=11068, stack(0x15a20000,0x15a70000)]
+  0x15801400 JavaThread "MQTT Call: JavaSampleHanjohan" [_thread_blocked, id=11700, stack(0x15d60000,0x15db0000)]
+  0x15800400 JavaThread "MQTT Snd: JavaSampleHanjohan" [_thread_blocked, id=9684, stack(0x15cd0000,0x15d20000)]
+  0x157ff800 JavaThread "MQTT Rec: JavaSampleHanjohan" [_thread_in_native, id=9232, stack(0x15b40000,0x15b90000)]
+  0x0069ec00 JavaThread "Service Thread" daemon [_thread_blocked, id=3196, stack(0x15600000,0x15650000)]
+  0x0067e000 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=11484, stack(0x14fa0000,0x14ff0000)]
+  0x0067b400 JavaThread "Attach Listener" daemon [_thread_blocked, id=1164, stack(0x14f10000,0x14f60000)]
+  0x0067a800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=4256, stack(0x14e80000,0x14ed0000)]
+  0x00668c00 JavaThread "Finalizer" daemon [_thread_blocked, id=4316, stack(0x14250000,0x142a0000)]
+  0x0060a000 JavaThread "Reference Handler" daemon [_thread_blocked, id=3276, stack(0x14200000,0x14250000)]
+=>0x005e3400 JavaThread "main" [_thread_in_native, id=3728, stack(0x006f0000,0x00740000)]
+
+Other Threads:
+  0x00607800 VMThread [stack: 0x04130000,0x04180000] [id=6216]
+  0x15660400 WatcherThread [stack: 0x15790000,0x157e0000] [id=10080]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ def new generation   total 4928K, used 3266K [0x04200000, 0x04750000, 0x09750000)
+  eden space 4416K,  73% used [0x04200000, 0x04530a28, 0x04650000)
+  from space 512K,   0% used [0x04650000, 0x04650000, 0x046d0000)
+  to   space 512K,   0% used [0x046d0000, 0x046d0000, 0x04750000)
+ tenured generation   total 10944K, used 0K [0x09750000, 0x0a200000, 0x14200000)
+   the space 10944K,   0% used [0x09750000, 0x09750000, 0x09750200, 0x0a200000)
+ Metaspace       used 471K, capacity 2538K, committed 2624K, reserved 4480K
+
+Card table byte_map: [0x00800000,0x00890000] byte_map_base: 0x007df000
+
+Polling page: 0x004b0000
+
+CodeCache: size=32768Kb used=777Kb max_used=777Kb free=31990Kb
+ bounds [0x02090000, 0x02158000, 0x04090000]
+ total_blobs=198 nmethods=48 adapters=82
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 0.348 Thread 0x0067e000   44             java.lang.AbstractStringBuilder::append (50 bytes)
+Event: 0.348 Thread 0x0067e000 nmethod 44 0x02150648 code [0x02150780, 0x021509e0]
+Event: 1.691 Thread 0x0067e000   45             java.util.Properties::load0 (250 bytes)
+Event: 1.693 Thread 0x0067e000 nmethod 45 0x02150e08 code [0x02150f50, 0x02151260]
+Event: 2.007 Thread 0x0067e000   46             java.lang.StringBuilder::append (8 bytes)
+Event: 2.008 Thread 0x0067e000 nmethod 46 0x021515c8 code [0x021516c0, 0x0215175c]
+Event: 2.668 Thread 0x0067e000   47             java.lang.String::indexOf (7 bytes)
+Event: 2.668 Thread 0x0067e000 nmethod 47 0x021517c8 code [0x021518c0, 0x0215195c]
+Event: 3.098 Thread 0x0067e000   48             java.util.ArrayList::size (5 bytes)
+Event: 3.098 Thread 0x0067e000 nmethod 48 0x02152508 code [0x02152600, 0x02152680]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (6 events):
+Event: 0.037 Thread 0x005e3400 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x042079f8) thrown at [C:\jenkins\workspace\8-2-build-windows-i586-cygwin\jdk8u281\880\hotspot\src\s
+Event: 0.037 Thread 0x005e3400 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x04207cc8) thrown at [C:\jenkins\workspace\8-2-build-windows-i586-cygwin\jdk8u281\880\hotspot\src\share\vm\prims\jni.
+Event: 0.247 Thread 0x005e3400 Exception <a 'java/security/PrivilegedActionException'> (0x0434fe28) thrown at [C:\jenkins\workspace\8-2-build-windows-i586-cygwin\jdk8u281\880\hotspot\src\share\vm\prims\jvm.cpp, line 1512]
+Event: 0.247 Thread 0x005e3400 Exception <a 'java/security/PrivilegedActionException'> (0x04350028) thrown at [C:\jenkins\workspace\8-2-build-windows-i586-cygwin\jdk8u281\880\hotspot\src\share\vm\prims\jvm.cpp, line 1512]
+Event: 0.250 Thread 0x005e3400 Exception <a 'java/security/PrivilegedActionException'> (0x04354100) thrown at [C:\jenkins\workspace\8-2-build-windows-i586-cygwin\jdk8u281\880\hotspot\src\share\vm\prims\jvm.cpp, line 1512]
+Event: 0.250 Thread 0x005e3400 Exception <a 'java/security/PrivilegedActionException'> (0x04354300) thrown at [C:\jenkins\workspace\8-2-build-windows-i586-cygwin\jdk8u281\880\hotspot\src\share\vm\prims\jvm.cpp, line 1512]
+
+Events (10 events):
+Event: 3.091 loading class org/eclipse/paho/client/mqttv3/MqttMessage
+Event: 3.091 loading class org/eclipse/paho/client/mqttv3/MqttMessage done
+Event: 3.093 loading class org/eclipse/paho/client/mqttv3/MqttTopic
+Event: 3.093 loading class org/eclipse/paho/client/mqttv3/MqttTopic done
+Event: 3.096 loading class org/eclipse/paho/client/mqttv3/util/Strings
+Event: 3.096 loading class org/eclipse/paho/client/mqttv3/util/Strings done
+Event: 3.098 loading class org/eclipse/paho/client/mqttv3/internal/wire/MqttReceivedMessage
+Event: 3.098 loading class org/eclipse/paho/client/mqttv3/internal/wire/MqttReceivedMessage done
+Event: 4.136 Executing VM operation: EnableBiasedLocking
+Event: 4.136 Executing VM operation: EnableBiasedLocking done
+
+
+Dynamic libraries:
+0x008b0000 - 0x008ee000 	C:\Program Files (x86)\Java\jdk1.8.0_281\bin\java.exe
+0x77c60000 - 0x77dfa000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x75ae0000 - 0x75bc0000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x74b60000 - 0x74b6e000 	C:\Program Files\AVAST Software\Avast\x86\aswhook.dll
+0x77200000 - 0x773ff000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x73590000 - 0x7362f000 	C:\WINDOWS\SYSTEM32\apphelp.dll
+0x75bd0000 - 0x75c49000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x75ee0000 - 0x75f9f000 	C:\WINDOWS\System32\msvcrt.dll
+0x77890000 - 0x77906000 	C:\WINDOWS\System32\sechost.dll
+0x76520000 - 0x765db000 	C:\WINDOWS\System32\RPCRT4.dll
+0x75430000 - 0x75455000 	C:\WINDOWS\System32\SspiCli.dll
+0x75420000 - 0x7542a000 	C:\WINDOWS\System32\CRYPTBASE.dll
+0x77b90000 - 0x77bf0000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x77060000 - 0x771f8000 	C:\WINDOWS\System32\USER32.dll
+0x75530000 - 0x75547000 	C:\WINDOWS\System32\win32u.dll
+0x75550000 - 0x75571000 	C:\WINDOWS\System32\GDI32.dll
+0x75c50000 - 0x75dad000 	C:\WINDOWS\System32\gdi32full.dll
+0x75630000 - 0x756ac000 	C:\WINDOWS\System32\msvcp_win.dll
+0x77a70000 - 0x77b90000 	C:\WINDOWS\System32\ucrtbase.dll
+0x74ba0000 - 0x74daf000 	C:\WINDOWS\WinSxS\x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.18362.1316_none_e6276d26f8de04dd\COMCTL32.dll
+0x77610000 - 0x77886000 	C:\WINDOWS\System32\combase.dll
+0x75a00000 - 0x75a25000 	C:\WINDOWS\System32\IMM32.DLL
+0x74b40000 - 0x74b53000 	C:\Program Files (x86)\Java\jdk1.8.0_281\jre\bin\vcruntime140.dll
+0x74960000 - 0x749cf000 	C:\Program Files (x86)\Java\jdk1.8.0_281\jre\bin\msvcp140.dll
+0x74580000 - 0x7495e000 	C:\Program Files (x86)\Java\jdk1.8.0_281\jre\bin\client\jvm.dll
+0x77600000 - 0x77606000 	C:\WINDOWS\System32\PSAPI.DLL
+0x74570000 - 0x74578000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x75810000 - 0x7586e000 	C:\WINDOWS\System32\WS2_32.dll
+0x74520000 - 0x74544000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x74550000 - 0x74558000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x744e0000 - 0x74503000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x759c0000 - 0x759fb000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x75bc0000 - 0x75bcf000 	C:\WINDOWS\System32\kernel.appcore.dll
+0x74560000 - 0x7456d000 	C:\Program Files (x86)\Java\jdk1.8.0_281\jre\bin\verify.dll
+0x744b0000 - 0x744d4000 	C:\Program Files (x86)\Java\jdk1.8.0_281\jre\bin\java.dll
+0x74310000 - 0x74324000 	C:\Program Files (x86)\Java\jdk1.8.0_281\jre\bin\zip.dll
+0x75fa0000 - 0x7651b000 	C:\WINDOWS\System32\SHELL32.dll
+0x75a50000 - 0x75ad3000 	C:\WINDOWS\System32\shcore.dll
+0x76a50000 - 0x77010000 	C:\WINDOWS\System32\windows.storage.dll
+0x77a50000 - 0x77a6b000 	C:\WINDOWS\System32\profapi.dll
+0x77010000 - 0x77053000 	C:\WINDOWS\System32\powrprof.dll
+0x77a40000 - 0x77a4d000 	C:\WINDOWS\System32\UMPDC.dll
+0x75970000 - 0x759b4000 	C:\WINDOWS\System32\shlwapi.dll
+0x76a30000 - 0x76a43000 	C:\WINDOWS\System32\cryptsp.dll
+0x73ec0000 - 0x73ed7000 	C:\Program Files (x86)\Java\jdk1.8.0_281\jre\bin\net.dll
+0x74440000 - 0x74492000 	C:\WINDOWS\system32\mswsock.dll
+0x743a0000 - 0x74433000 	C:\WINDOWS\SYSTEM32\DNSAPI.dll
+0x75a30000 - 0x75a37000 	C:\WINDOWS\System32\NSI.dll
+0x75140000 - 0x75172000 	C:\WINDOWS\SYSTEM32\IPHLPAPI.DLL
+0x74390000 - 0x74398000 	C:\Windows\System32\rasadhlp.dll
+0x74330000 - 0x74381000 	C:\WINDOWS\System32\fwpuclnt.dll
+0x75e10000 - 0x75e29000 	C:\WINDOWS\System32\bcrypt.dll
+0x73e90000 - 0x73ebf000 	D:\Kuliah\NetBeansProjects\New Folder\testdemo\com_rfid_uhf_Devices.dll
+0x71bf0000 - 0x71c46000 	C:\Program Files (x86)\Java\jdk1.8.0_281\bin\UHFReader288MP.dll
+0x765e0000 - 0x76a29000 	C:\WINDOWS\System32\SETUPAPI.dll
+0x719d0000 - 0x71b5f000 	C:\WINDOWS\SYSTEM32\dbghelp.dll
+
+VM Arguments:
+java_command: com.mycompany.helloworld.Main
+java_class_path (initial): D:\Kuliah\NetBeansProjects\HelloWorld\target\classes;C:\Users\Global Store\.m2\repository\org\eclipse\paho\org.eclipse.paho.client.mqttv3\1.2.5\org.eclipse.paho.client.mqttv3-1.2.5.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files (x86)\Java\jdk1.8.0_281
+PATH=C:\Program Files (x86)\Java\jdk1.8.0_281\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Users\Global Store\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\opencv\opencv\build\x64\vc14\bin;C:\Program Files (x86)\MAVProxy;C:\Program Files\MATLAB\R2014b\runtime\win64;C:\Program Files\MATLAB\R2014b\bin;C:\Program Files\MATLAB\R2014b\polyspace\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Program Files (x86)\GnuWin32\bin;C:\Users\Global Store\.dnx\bin;C:\Users\Global Store\AppData\Local\Microsoft\WindowsApps;D:\Kuliah\OpenCV3.1\install\x86\vc14\bin;C:\Users\Global Store\AppData\Roaming\npm;D:\Microsoft VS Code\bin;C:\Program Files (x86)\GnuWin32\bin;D:\Kuliah\anaconda;D:\Kuliah\Inno Setup 6
+USERNAME=Global Store
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 9, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 18362 (10.0.18362.1110)
+
+CPU:total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 142 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 4074532k(284028k free), swap 6302756k(1393816k free)
+
+vm_info: Java HotSpot(TM) Client VM (25.281-b09) for windows-x86 JRE (1.8.0_281-b09), built on Dec  9 2020 12:52:05 by "" with MS VC++ 15.9 (VS2017)
+
+time: Wed Feb 10 22:38:28 2021
+timezone: SE Asia Standard Time
+elapsed time: 4.674493 seconds (0d 0h 0m 4s)
+
