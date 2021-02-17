@@ -27,9 +27,7 @@ public static String getrfid() {
 	public static void main(String[] args) throws MqttException, IOException, UnsupportedCommOperationException {
             {
         String topic        = "MQTTExJohan";
-        //content             =  rfid1.getrfid(); 
         content             ="0";
-        //while(content=="0" | content==null){content = SerComn.getOxy();};
         int qos             = 2;
         String broker       = "tcp://test.mosquitto.org:1883";
         String clientId     = "JavaSampleHanjohan";
@@ -42,37 +40,22 @@ public static String getrfid() {
             System.out.println("Connected");
             MqttMessage message = new MqttMessage();
             message.setQos(qos);
-            //content             = SerComn.getOxy();
-        
-		// TODO Auto-generated method stub
-                //-Djava.library.path=D:\Kuliah\libraryme
-                //-Djava.library.path;
-                //System.load("my/full/path/native.dll");
-
-                
+          
                 System.load("D:/Kuliah/NetBeansProjects/New Folder/testdemo/com_rfid_uhf_Devices.dll");
-                //System.load("/home/johan/Downloads/testdemo/libdll/com_rfid_uhf_Devices.dll");
-                //String libr=System.getProperty("java.library.path");
-		//System.out.println(libr); 
-                //MyLibrary1;
-                 //System.loadLibrary("com_rfid_uhf_Device");
+             
 		 com.rfid.uhf.Device reader = new com.rfid.uhf.Device();
 		 int Port = 37011;//com1
 	     byte[]comAddr=new byte[1];
 	     comAddr[0]=(byte)255;
 	     byte baud=5;//57600bps
-	     int[] PortHandle= new int[1];           
-	     //int result = reader.OpenComPort(8, comAddr, baud, PortHandle);
+	     int[] PortHandle= new int[1];          
              String IpAddress="158.140.167.173";
              
              int results = reader.OpenNetPort(Port,IpAddress,comAddr,PortHandle);
              int results2=results;
              int jml=0;
-	     //System.out.println("Connect to serial port:"+ result);
 	     System.out.println("Connect to TCP/IP ports:"+ results);
              message.setPayload(IpAddress.getBytes());
-             //MqttMessage messages = new MqttMessage(IpAddress.getBytes());
-             //message.setQos(qos);
              sampleClient.publish("IpaddressUHFR", message);
 	     while(true)
 	     {
@@ -90,27 +73,13 @@ public static String getrfid() {
 	    	 byte[]CheckAnt=new byte[1];
 	    	 results = reader.GetReaderInformation(comAddr, versionInfo, readerType, trType, dmaxfre, dminfre, powerdBm, InventoryScanTime,
 	    			 Ant, BeepEn, OutputRep, CheckAnt, PortHandle[0]);
-                 /*if (results!=0){nilaiGadd+="."+String.valueOf(results);
-                         message.setPayload(nilaiGadd.getBytes());
-                         sampleClient.publish("G@ress_reader:", message); }*/
                  int PortHandles=PortHandle[0];
                  byte power1=30;
                  reader.SetRfPower(comAddr, power1,PortHandles);
-                 //System.out.println("powerdBm :"+powerdBm);
-                 //System.out.println("powerdBm2 :"+powerdBm[0]);
-	    	 //powerdBm[0]=0;
-                 //System.out.println("powerdBm2 :"+powerdBm[0]);
 	    	 System.out.println("Get reader information:"+results);
 	    	 byte ComAdrData=0;
 	    	 results = reader.SetAddress(comAddr, ComAdrData, PortHandle[0]);
 	    	 System.out.println("Set the address of the reader:"+results);
-	    	 /*if (results!=0){nilaiadd+="."+String.valueOf(results);
-                         message.setPayload(nilaiadd.getBytes());
-                         sampleClient.publish("@ress_reader:", message); }*/
-	    	 //Main.sampleClient.publish(topic, message);
-	    	 ////////////////////////////////////////////////////////////////////////////
-	    	 /////////////Label operation///////////////////////////////////////////////////////
-	    	 ////////////////////////////////////////////////////////////////////////////
 	    	 byte QValue=4;
 	    	 byte Session=0;
 	    	 byte MaskMem=2;
@@ -170,7 +139,7 @@ public static String getrfid() {
 	    			 byte WordPtr=2;
 	    			 byte Num=6;
 	    			 byte[]Password=new byte[4];
-                     MaskMem=2;//TID掩码
+                     MaskMem=2;
                      MaskAdr[0]=0;
                      MaskAdr[1]=0;
                      MaskLen=96;
@@ -222,13 +191,9 @@ public static String getrfid() {
 	    		 }
                 
 	    	 }
-	     //reader.CloseNetPort(PortHandle[0]);
-                //System.out.print("results :");
-                //System.out.println(results);
-	    	
-             //if(results!=0)break;
+
              }
-	     //reader.CloseSpecComPort(PortHandle[0]);
+
 	}
 
         }
